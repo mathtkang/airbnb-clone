@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "/Users/sgaeng/.local/share/virtualenvs/airbnb-clone-QnY36eFm/bin/python",
+    "python.pythonPath": "../../System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7",
     "python.linting.flake8Enabled": true,
     "python.linting.pylintEnabled": false,
     "python.linting.enabled": true,
