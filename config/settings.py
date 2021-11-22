@@ -26,32 +26,24 @@ SECRET_KEY = "+4)ifsm*8-v&u#=892kgg*zznq&9jt6h+6j0*9=!!^=8e#w_p^"
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+SITE_ID = 1
 
 # Application definition
 
-# DJANGO_APPS = [
-#     "django.contrib.admin",
-#     "django.contrib.auth",
-#     "django.contrib.contenttypes",
-#     "django.contrib.staticfiles",
-#     "django.contrib.messages",
-#     "django.contrib.sites",
-
-# ]
-
-# PROJECT_APPS = ["users.apps.UsersConfig"]
-
-# INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS
-
 INSTALLED_APPS = [
+    # Django apps
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
-    "django.contrib.staticfiles",
+    'django.contrib.sessions',
     "django.contrib.messages",
+    "django.contrib.staticfiles",
     "django.contrib.sites",
+
+    # Project apps
     "users.apps.UsersConfig",
+
+
 ]
 
 MIDDLEWARE = [
