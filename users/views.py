@@ -70,6 +70,8 @@ def kakao_callback(request):
         code = request.GET.get("code")
         client_id = os.environ.get("KAKAO_ID")
         redirect_uri = "http://127.0.0.1:8000/users/login/kakao/callback"
+
+        #Access Token Request
         token_request = requests.get(
             f"https://kauth.kakao.com/oauth/token?grant_type=authorization_code&client_id={client_id}&redirect_uri={redirect_uri}&code={code}"
         )
@@ -77,14 +79,22 @@ def kakao_callback(request):
         error = token_json.get("error", None)
         if error is not None:
             raise KakaoException()
-        
         access_token = token_json.get("access_token")
+
+        #Email Request
         profile_request = requests.get(
             "https://kapi.kakao.com/v2/user/me",
             headers={"Authorization": f"Bearer {access_token}"},
         )
 
         profile_json = profile_request.json()
+        # kakao_account = profile_json.get('kakao_account') 
+
+        '''
+        profile_json.get("~~") 와 kakao_account.get("~~")의 차이점은? => 그냥 중간 다리 역할
+        '''
+
+        # print(kakao_account)
         email = profile_json.get("kakao_account").get("email")
         properties = profile_json.get("properties")
         nickname = properties.get("nickname")
